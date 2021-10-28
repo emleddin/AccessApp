@@ -1,0 +1,42 @@
+{% extends '_base.html' %}
+{% load leaflet_tags %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <head>
+        {% leaflet_js %}
+        {% leaflet_css %}
+        
+        <style>
+            .leaflet-container { height: 100%; }
+        </style>
+
+        <script>
+            var dataurl = '{% url "data" %}';
+
+            window.addEventListener("map:init", function (event) {
+            var map = event.detail.map;
+            // Download GeoJSON data with Ajax
+            fetch(dataurl)
+                .then(function(resp) {
+                return resp.json();
+                })
+                .then(function(data) {
+                L.geoJson(data, {
+                    onEachFeature: function onEachFeature(feature, layer) {
+                    var props = feature.properties;
+                    var content = `<h3>${props.id}</h3><p>${props.description}</p>`;
+                    layer.bindPopup(content);
+                }}).addTo(map);
+                });
+            });
+        </script>
+
+    </head>
+
+    <body>
+        {% leaflet_map "map" %}
+    </body>
+
+{% endblock content %}

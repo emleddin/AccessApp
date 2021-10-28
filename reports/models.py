@@ -8,6 +8,6 @@ class Report(models.Model):
         default=uuid.uuid4,
         editable=False)
     
-    geometry = models.PointField(geography=True) 
+    geom = models.PointField(geography=True) 
     description = models.TextField()
     date_added = models.DateTimeField(default=datetime.datetime.today,null=False,blank=False)

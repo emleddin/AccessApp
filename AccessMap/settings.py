@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
-    'rest_framework',
+    'djgeojson',
+    'leaflet',
     'reports.apps.ReportsConfig',
+    'pages.apps.PagesConfig'
 ]
 
 MIDDLEWARE = [
@@ -126,6 +128,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Location of static files in LOCAL development environment
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
+# Location of static files for PRODUCTION
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
