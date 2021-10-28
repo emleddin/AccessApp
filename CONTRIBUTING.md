@@ -1,6 +1,6 @@
 # Contributing to AccessMap
 
-This is a Django App.
+Welcome to our Hackathon project! This is a Django App.
 
 ## Using Docker
 
@@ -31,6 +31,25 @@ $ sudo usermod -aG docker ${USER}
 # Logout and log back in OR run `su -s ${USER}`
 # Test with:
 $ docker run hello-world
+```
+
+3. `Package X is not installed`
+Something was likely added after you built your Docker container.
+```
+docker-compose down
+docker-compose up --build
+```
+
+4. Generic database issues -- 404 with app information
+```
+docker-compose exec web python manage.py makemigrations
+docker-compose exec web python manage.py migrate
+```
+
+### Creating an Admin Account
+
+```
+docker-compose exec web python manage.py createsuperuser
 ```
 
 ## Setting Up (Manually)
