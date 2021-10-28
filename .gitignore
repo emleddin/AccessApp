@@ -4,3 +4,4 @@
 ## PyCache
 __pycache__/
 
+.env
