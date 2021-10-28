@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+{% load leaflet_tags %}
+
+{% block title %}New Accessibility Report{% endblock title %}
+
+{% block content %}
+<html>
+  <head>
+   {% leaflet_js plugins="forms" %}
+   {% leaflet_css plugins="forms" %}
+  </head>
+  <body>
+    <h1>Edit {{ object }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit"/>
+    </form>
+  </body>
+</html>
+{% endblock content %}

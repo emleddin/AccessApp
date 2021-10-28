@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pages.apps.PagesConfig',
+    'django.contrib.gis',
+    'djgeojson',
+    'leaflet',
+    'reports.apps.ReportsConfig',
+    'pages.apps.PagesConfig'
 ]
 
 MIDDLEWARE = [
@@ -125,7 +129,24 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Location of static files in LOCAL development environment
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
+# Location of static files for PRODUCTION
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# django-leaflet configuration
+LEAFLET_CONFIG = {
+    'SPATIAL_EXTENT': (-81.94535, 40.79670, -81.92190, 40.81968)
+}
+

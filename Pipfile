@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 django = "==3.2.8"
 psycopg2-binary = "*"
+django-leaflet = "*"
+django-geojson = "*"
 
 [dev-packages]
 
