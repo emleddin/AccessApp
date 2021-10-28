@@ -8,6 +8,9 @@ django = "==3.2.8"
 psycopg2-binary = "*"
 django-leaflet = "*"
 django-geojson = "*"
+django-compressor = "*"
+libsass = "*"
+django-sass-processor = "*"
 
 [dev-packages]
 

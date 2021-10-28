@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'djgeojson',
     'leaflet',
     'reports.apps.ReportsConfig',
-    'pages.apps.PagesConfig'
+    'pages.apps.PagesConfig',
+    'sass_processor'
 ]
 
 MIDDLEWARE = [
@@ -123,7 +124,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -137,8 +137,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder'
 ]
+
+# SCSS
+SASS_PROCESSOR_ROOT = STATIC_ROOT
+
+SASS_PROCESSOR_INCLUDE_DIRS = [
+    os.path.join(BASE_DIR, 'bootstrap'),
+]
+
+SASS_PRECISION = 8
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -149,4 +159,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LEAFLET_CONFIG = {
     'SPATIAL_EXTENT': (-81.94535, 40.79670, -81.92190, 40.81968)
 }
-
