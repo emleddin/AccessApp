@@ -3,10 +3,11 @@ version: '3.8'
 services: 
   db:
     image: postgis/postgis
-    environment: 
+    env_file: 
       - .env.example
     ports:
         - 5432:5432
+  
   web:
       build: .
       env_file: 
