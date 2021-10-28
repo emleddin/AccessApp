@@ -144,3 +144,9 @@ STATICFILES_FINDERS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# django-leaflet configuration
+LEAFLET_CONFIG = {
+    'SPATIAL_EXTENT': (-81.94535, 40.79670, -81.92190, 40.81968)
+}
+

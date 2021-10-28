@@ -25,8 +25,7 @@
                 .then(function(data) {
                 L.geoJson(data, {
                     onEachFeature: function onEachFeature(feature, layer) {
-                    var props = feature.properties;
-                    var content = `<h3>${props.id}</h3><p>${props.description}</p>`;
+                    var content = `<h3>${feature.properties.id}</h3><p>${feature.properties.description}</p>`;
                     layer.bindPopup(content);
                 }}).addTo(map);
                 });
