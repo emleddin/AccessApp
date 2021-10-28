@@ -1,4 +1,6 @@
 # MacOS Internals
 .DS_Store
 
+## PyCache
+__pycache__/
 
