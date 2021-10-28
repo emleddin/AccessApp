@@ -25,6 +25,12 @@
 
             window.addEventListener("map:init", function (event) {
             var map = event.detail.map;
+            map.once("click", function(e){
+                var query = "?lat=" + e.latlng.lat.toString() + "&lon=" + e.latlng.lng.toString();
+                var url = '{% url "new_report" %}';
+                var content = '<a href=\"' + url + query + '\">New report?</a>';
+                new L.Marker([e.latlng.lat, e.latlng.lng]).addTo(map).bindPopup(content).openPopup();
+            }) 
             // Download GeoJSON data with Ajax
             fetch(dataurl)
                 .then(function(resp) {
@@ -38,6 +44,8 @@
                 }}).addTo(map);
                 });
             });
+
+            
         </script>
 
     </head>
