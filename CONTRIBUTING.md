@@ -2,7 +2,40 @@
 
 This is a Django App.
 
-## Setting Up
+## Using Docker
+
+- Download [Docker](https://www.docker.com/get-started)
+- Test the installation with
+```
+docker run hello-world
+```
+- Run `docker-compose up` from the root directory of this repository
+(where `docker-compose.yml` is).
+This will launch the app locally at http://localhost:8000.
+
+### Potential Errors
+
+1. `Version in "./docker-compose.yml" is unsupported. You might be seeing this error because you're using the wrong Compose file version.`
+The installation of `docker-compose` you have is too old!
+Try to download the [latest release](https://github.com/docker/compose/releases)
+from GitHub.
+Alternatively, follow their
+[documented install procedure](https://docs.docker.com/compose/install/).
+
+2. `Got permission denied while trying to connect to the Docker daemon socket at unix`
+This occurred because you were trying to run as a non-root user.
+Either run as root, or create a `docker` group.
+```bash
+$ sudo groupadd docker
+$ sudo usermod -aG docker ${USER}
+# Logout and log back in OR run `su -s ${USER}`
+# Test with:
+$ docker run hello-world
+```
+
+## Setting Up (Manually)
+
+If you're using Docker, ignore this!
 
 Install Python3 ([Anaconda](https://www.anaconda.com/products/individual)
 is recommended!).
@@ -12,7 +45,7 @@ Install the required packages:
 python3 -m pip install -r requirements.txt
 ```
 
-## Testing Locally
+### Testing Locally
 
 ```
 python3 manage.py runserver
