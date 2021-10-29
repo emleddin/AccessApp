@@ -10,8 +10,19 @@
     {% leaflet_css %}
     
     <script>
+        var pointx = parseFloat("{{ report.geom.x }}");
+        var pointy = parseFloat("{{ report.geom.y }}");
+
         window.addEventListener("map:init", function (event) {
-        var map = event.detail.map; });
+
+        var map = event.detail.map; 
+        map.setView([pointy, pointx], 18);
+        new L.Marker([pointy, pointx]).addTo(map);
+    
+        });
+
+        
+
     </script>
   </head>
 
@@ -21,7 +32,7 @@
     <div>Status: {{ report.status }}</div>
     <div>Submitted: {{report.date_added }} </div>
     <div>Description: {{ report.description }} </div>
-  
+
   </body>
 </html>
 {% endblock content %}
