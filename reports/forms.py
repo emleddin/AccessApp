@@ -6,5 +6,5 @@ from .models import Report
 class ReportForm(forms.ModelForm):
     class Meta:
         model = Report
-        fields = '__all__'
+        fields = ['geom', 'description']
         widgets = {'geom' : LeafletWidget()}
