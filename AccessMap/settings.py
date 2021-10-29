@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'leaflet',
     'reports.apps.ReportsConfig',
     'pages.apps.PagesConfig',
-    'sass_processor'
+    'sass_processor',
+    'accounts.apps.AccountsConfig'
 ]
 
 MIDDLEWARE = [
@@ -159,3 +160,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LEAFLET_CONFIG = {
     'SPATIAL_EXTENT': (-81.94535, 40.79670, -81.92190, 40.81968)
 }
+
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
