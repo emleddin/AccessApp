@@ -9,6 +9,11 @@ header {
   color: $primary;
 }
 
+.border-bottom {
+    // border-bottom: 1px solid $primary !important;
+    border-bottom-color: $primary !important;
+}
+
 html, body {
     height:100%;
 }

@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
     NO_DISABILITY = 'ND'
+    NO_AID = 'NA'
     WHEELCHAIR = 'WHEEL'
     CANE = 'CANE'
     WALKER = 'WALKER'
@@ -13,7 +14,8 @@ class CustomUser(AbstractUser):
     SCOOTER = 'SCOOTER'
     GUIDE_DOG ='GUIDE'
     MOBILITY_TYPE = [
-        (NO_DISABILITY, 'No disability'),
+        (NO_DISABILITY, 'No mobility disability'),
+        (NO_AID, 'No primary mobility aid'),
         (WHEELCHAIR, 'Wheelchair'),
         (CANE, 'Cane'),
         (WALKER, 'Walker'),
