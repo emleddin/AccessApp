@@ -101,6 +101,23 @@ python3 manage.py runserver
 git push heroku main
 ```
 
+```
+heroku container:login
+heroku container:push web
+heroku container:release web
+heroku config:set SECRET_KEY="YOUR_SECRET_KEY_VALUE"
+```
+
+### Generating a Secret Key
+
+```python
+from django.utils.crypto import get_random_string
+chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+SECRET_KEY = get_random_string(50, chars)
+print(SECRET_KEY)
+```
+Then set `SECRET_KEY` as an environment variable.
+
 ## Additional Documentation
 
 - [Django](https://docs.djangoproject.com/en/3.2/)
