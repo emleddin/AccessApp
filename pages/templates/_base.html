@@ -20,7 +20,7 @@
     <div>
       <nav class="navbar navbar-expand-md navbar-light fixed-top">
           <a class="navbar-brand" href="{% url 'home' %}">AccessMap</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-label="NavBar Toggle">
               <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
@@ -29,9 +29,10 @@
               </ul>
               <ul class="navbar-nav">
                   <li class="nav-item">
-                    <label id="theme-switch" class="theme-switch" for="checkbox_theme">
-                        <input type="checkbox" id="checkbox_theme">
-                        <span class="slider round" aria-label="Dark Mode Toggle"></span>
+                    <label id="theme-switch" aria-label="Toggle" class="theme-switch" for="checkbox_theme">
+                      <label class='sr-only'>Dark Mode Toggle</label>
+                        <input type="checkbox" id="checkbox_theme" role="switch" aria-hidden="true">
+                        <span class="slider round"></span>
                     </label>
                   </li>
                   <li class="nav-item">
@@ -123,7 +124,7 @@
       <p>
         Created by <b>Team Spoopy</b> for the 2021 oSTEM Hackathon
         <br>
-        <a href="https://github.com/emleddin/AccessApp"><i class="fab fa-github fa-3x"></i></a>
+        <a target="_blank" href="https://github.com/emleddin/AccessApp" aria-label="GitHub"><i class="fab fa-github fa-3x"></i></a>
       </p>
     </center>
   </footer>
