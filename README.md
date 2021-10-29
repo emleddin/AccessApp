@@ -7,6 +7,12 @@ Project by the Spoopy team for the 2021 oSTEM Hackathon.
 We developed a Django web app, *AccessMap*, for reporting and tracking
 inaccessible conditions on college campuses.
 
+## App Screenshots
+<img src="https://raw.github.com/emleddin/AccessApp/main/static/img/home-light.png?raw=true" alt="Light mode home page of AccessMap. There is a navbar, map, and footer." width="500"/>
+
+<img src="https://raw.github.com/emleddin/AccessApp/main/static/img/home-dark.png?raw=true" alt="Dark mode home page of AccessMap. There is a navbar, map, and footer." width="500"/>
+
 ## Presentation
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQgyRHBzTdYY6OJMjyTLwJ93yi3HztWANTED5oUOOmMOc9c3TJ-m5bDdH9ID772ZBiOFfez1_HZS60w/embed?start=false&loop=false&delayms=10000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+We created a [Google Slides Presentation](https://docs.google.com/presentation/d/e/2PACX-1vQgyRHBzTdYY6OJMjyTLwJ93yi3HztWANTED5oUOOmMOc9c3TJ-m5bDdH9ID772ZBiOFfez1_HZS60w/pub?start=false&loop=false&delayms=10000)
+for the Hackathon.
