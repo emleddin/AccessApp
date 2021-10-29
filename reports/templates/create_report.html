@@ -10,10 +10,25 @@
    {% leaflet_css plugins="forms" %}
   </head>
   <body>
+    <h1>Report an issue</h1>
     {% if user.is_authenticated %}
         <form method="POST">
-            {% csrf_token %}
-            {{ form }}
+          {% csrf_token %}
+          
+          <div>
+            {{ form.geom.errors }}
+            {{ form.geom }}
+            Use marker tool to add or move point on map.
+          </div>
+
+          
+          <div> 
+            <h4>Description:</h4>
+            {{ form.description.errors }}
+            {{ form.description }}
+          </div>
+            
+
             <input type="submit"/>
         </form>
     {% else %}

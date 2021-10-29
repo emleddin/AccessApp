@@ -39,7 +39,10 @@
                 .then(function(data) {
                 L.geoJson(data, {
                     onEachFeature: function onEachFeature(feature, layer) {
-                    var content = `<h3>${feature.properties.id}</h3><p>${feature.properties.description}</p>`;
+                    var content = `<h4>Report #${feature.properties.id}</h4>` 
+                        + `<div><strong>Status: </strong>${feature.properties.status}</div>` 
+                        + `<div><strong>Date: </strong>${feature.properties.date_added}</div>`
+                        + `<div><strong>Description: </strong>${feature.properties.description}</div>`;
                     layer.bindPopup(content);
                 }}).addTo(map);
                 });

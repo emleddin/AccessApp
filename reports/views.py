@@ -15,7 +15,7 @@ class ReportListView(ListView):
 
 class ReportMapLayer(GeoJSONLayerView):
     model = Report
-    properties = ('id', 'description')
+    properties = ('id', 'description', 'status', 'date_added')
 
 class ReportCreateView(CreateView):
     def get(self, request, *args, **kwargs):
