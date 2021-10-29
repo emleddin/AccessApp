@@ -25,12 +25,7 @@
 
             window.addEventListener("map:init", function (event) {
             var map = event.detail.map;
-            map.once("click", function(e){
-                var query = "?lat=" + e.latlng.lat.toString() + "&lon=" + e.latlng.lng.toString();
-                var url = '{% url "new_report" %}';
-                var content = '<a href=\"' + url + query + '\">New report?</a>';
-                new L.Marker([e.latlng.lat, e.latlng.lng]).addTo(map).bindPopup(content).openPopup();
-            })
+            
             // Download GeoJSON data with Ajax
             fetch(dataurl)
                 .then(function(resp) {
@@ -43,7 +38,7 @@
                         + `<div><strong>Status: </strong>${feature.properties.status}</div>` 
                         + `<div><strong>Date: </strong>${feature.properties.date_added}</div>`
                         + `<div><strong>Description: </strong>${feature.properties.description}</div>`
-                        + `<div><a href={% url "data" %}${feature.properties.id}>more details</a></div>`;
+                        + `<div style="text-align:left;"><a href={% url "data" %}${feature.properties.id}>details</a></div>`;
                     layer.bindPopup(content);
                 }}).addTo(map);
                 });
