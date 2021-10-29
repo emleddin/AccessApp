@@ -10,11 +10,16 @@
    {% leaflet_css plugins="forms" %}
   </head>
   <body>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit"/>
-    </form>
+    {% if user.is_authenticated %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit"/>
+        </form>
+    {% else %}
+        <h2>You are not logged in.</h2>
+        <p><a href="{% url 'login' %}"><b>Log In</b></a> to submit a report</p>
+    {% endif %}
   </body>
 </html>
 {% endblock content %}
