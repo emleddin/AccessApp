@@ -11,6 +11,8 @@ django-geojson = "*"
 django-compressor = "*"
 libsass = "*"
 django-sass-processor = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [dev-packages]
 

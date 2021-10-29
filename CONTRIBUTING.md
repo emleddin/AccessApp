@@ -64,6 +64,19 @@ docker-compose exec web python manage.py migrate
 docker-compose exec web python manage.py createsuperuser
 ```
 
+### Installing New Packages
+
+To add more requirements to the Docker image, do
+```
+docker-compose exec web pipenv install <PACKAGENAME>
+```
+while the image is running.
+
+After, rebuild the container:
+```
+docker-compose up --build web
+```
+
 ## Setting Up (Manually)
 
 If you're using Docker, ignore this!
@@ -80,6 +93,12 @@ python3 -m pip install -r requirements.txt
 
 ```
 python3 manage.py runserver
+```
+
+## Using Heroku
+
+```
+git push heroku main
 ```
 
 ## Additional Documentation
