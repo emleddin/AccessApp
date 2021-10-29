@@ -42,9 +42,21 @@ docker-compose up --build
 
 4. Generic database issues -- 404 with app information
 ```
+## With the project "running" in another Terminal
 docker-compose exec web python manage.py makemigrations
 docker-compose exec web python manage.py migrate
 ```
+
+5. `django.db.migrations.exceptions.InconsistentMigrationHistory: Migration ABC is applied before its dependency ABC on database 'default'`
+
+If error persists:
+```
+docker-compose up --force-recreate --no-deps --build db
+docker-compose up
+## In another terminal, simultaneously
+docker-compose exec web python manage.py migrate
+```
+
 
 ### Creating an Admin Account
 
