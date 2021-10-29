@@ -101,6 +101,12 @@ python3 manage.py runserver
 git push heroku main
 ```
 
+```
+heroku container:login
+heroku container:push web
+heroku container:release web
+```
+
 ## Additional Documentation
 
 - [Django](https://docs.djangoproject.com/en/3.2/)
