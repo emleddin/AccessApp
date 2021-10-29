@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.http import HttpResponse
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from djgeojson.views import GeoJSONLayerView
 from reports.forms import ReportForm
 
@@ -40,4 +40,7 @@ class ReportCreateView(CreateView):
     form_class = ReportForm
     success_url = '/'
 
-    
+class ReportDetailView(DetailView):
+    model = Report
+    context_object_name = 'report'
+    template_name = 'report_detail.html'

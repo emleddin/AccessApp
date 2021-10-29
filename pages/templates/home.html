@@ -42,7 +42,8 @@
                     var content = `<h4>Report #${feature.properties.id}</h4>` 
                         + `<div><strong>Status: </strong>${feature.properties.status}</div>` 
                         + `<div><strong>Date: </strong>${feature.properties.date_added}</div>`
-                        + `<div><strong>Description: </strong>${feature.properties.description}</div>`;
+                        + `<div><strong>Description: </strong>${feature.properties.description}</div>`
+                        + `<div><a href={% url "data" %}${feature.properties.id}>more details</a></div>`;
                     layer.bindPopup(content);
                 }}).addTo(map);
                 });

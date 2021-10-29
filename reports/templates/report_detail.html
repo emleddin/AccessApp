@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+{% load leaflet_tags %}
+
+{% block title %}Report Detail{% endblock title %}
+
+{% block content %}
+<html>
+  <head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    
+    <script>
+        window.addEventListener("map:init", function (event) {
+        var map = event.detail.map; });
+    </script>
+  </head>
+
+  <body>
+    <h1>Report #{{ report.id }}</h1>
+    {% leaflet_map "map" %}
+    <div>Status: {{ report.status }}</div>
+    <div>Submitted: {{report.date_added }} </div>
+    <div>Description: {{ report.description }} </div>
+  
+  </body>
+</html>
+{% endblock content %}
