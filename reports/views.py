@@ -19,12 +19,14 @@ class ReportMapLayer(GeoJSONLayerView):
 
 class ReportCreateView(CreateView):
     def get(self, request, *args, **kwargs):
-        lat = request.GET['lat']
-        lon = request.GET['lon']
-
-        if lat and lon:
+        try:
+            lat = request.GET['lat']
+            lon = request.GET['lon']
             initial_data = {
                 'geom' : Point([float(lon), float(lat)], srid=4326) #xy
+            }
+        except:
+            initial_data = {
             }
 
         form = ReportForm(initial=initial_data)
