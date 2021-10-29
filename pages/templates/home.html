@@ -7,7 +7,7 @@
     <head>
         {% leaflet_js %}
         {% leaflet_css %}
-        
+
         <style>
             html, body, .container {
             height: 100%;
@@ -30,7 +30,7 @@
                 var url = '{% url "new_report" %}';
                 var content = '<a href=\"' + url + query + '\">New report?</a>';
                 new L.Marker([e.latlng.lat, e.latlng.lng]).addTo(map).bindPopup(content).openPopup();
-            }) 
+            })
             // Download GeoJSON data with Ajax
             fetch(dataurl)
                 .then(function(resp) {
@@ -45,7 +45,7 @@
                 });
             });
 
-            
+
         </script>
 
     </head>

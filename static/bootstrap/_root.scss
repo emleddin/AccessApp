@@ -16,4 +16,91 @@
   // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
   --font-family-sans-serif: #{inspect($font-family-sans-serif)};
   --font-family-monospace: #{inspect($font-family-monospace)};
+  // Might need for leaflet dark mode? https://gist.github.com/BrendonKoz/b1df234fe3ee388b402cd8e98f7eedbd
+  // --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
+
+// Set up Dark-mode coloration
+// @media (prefers-color-scheme: dark) {
+[data-theme="dark"] {
+  // Custom variable values only support SassScript inside `#{}`.
+  @each $color, $value in $dark-colors {
+    --#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors-dark {
+    --#{$color}: #{$value};
+  }
+
+  $acc-a: #C4F2FF; // Blue
+  $acc-b: #C4FFD0; // Green
+  $acc-c: #FDFFC4; // Yellow
+
+  // // For leaflet
+  // .map-tiles {
+  //   // filter:var(--map-tiles-filter, none);
+  //   --map-background: #1f1f1f;
+  //   --map-attribution-color: rgb(161,161,161);
+  //   --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+  // }
+
+  .navbar-light {
+    .navbar-nav {
+      .nav-link {
+        color: $primary-dark;
+
+        @include hover-focus() {
+          color: $acc-b;
+        }
+
+        &.disabled {
+          color: $acc-c;
+        }
+      }
+
+      .show > .nav-link,
+      .active > .nav-link,
+      .nav-link.show,
+      .nav-link.active {
+        color: $acc-b;
+      }
+    }
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: $acc-c;
+  }
+
+  .nav-light {
+    color: $primary-dark;
+    background-color: $secondary-dark;
+  }
+
+  .navbar-light .navbar-brand {
+    color: $primary-dark;
+    @include hover-focus() {
+      color: $acc-b;
+    }
+  }
+
+  a {
+    color: $acc-c;
+    @include hover-focus() {
+      color: $acc-b;
+    }
+  }
+
+  .navbar, .navbar-brand,  {
+    color: $primary-dark;
+    background-color: $secondary-dark;
+  }
+
+  .text-dark {
+    color: $primary-dark;
+  }
+
+  body {
+    color: $primary-dark;
+    background-color: $secondary-dark;
+  }
 }

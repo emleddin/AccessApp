@@ -64,14 +64,13 @@ $colors: map-merge(
   $colors
 );
 
-// Primary is text; secondary is bkgd
-$primary:       #000119 !default;
-$secondary:     #D1D9FF !default;
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
-$light:         #D1D9FF !default;
+$light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 
 $theme-colors: () !default;
@@ -84,59 +83,10 @@ $theme-colors: map-merge(
     "warning":    $warning,
     "danger":     $danger,
     "light":      $light,
-    "dark":       $dark,
-    "acc-a":      #661757,
-    "acc-b":      #0F490E,
-    "acc-c":      #670909
+    "dark":       $dark
   ),
   $theme-colors
 );
-
-// Define for Dark Mode!
-$dark-colors: () !default;
-$dark-colors: map-merge(
-  (
-    "blue":       $blue,
-    "indigo":     $indigo,
-    "purple":     $purple,
-    "pink":       $pink,
-    "red":        $red,
-    "orange":     $orange,
-    "yellow":     $yellow,
-    "green":      $green,
-    "teal":       $teal,
-    "cyan":       $cyan,
-    "white":      $white,
-    "gray":       $gray-600,
-    "gray-dark":  $gray-800
-  ),
-  $dark-colors
-);
-
-// Primary is text; secondary is bkgd
-// $primary-dark:       #FFC5DE !important;
-// $secondary-dark:     #1E1E1E !important;
-$primary-dark:       #FFC5DE;
-$secondary-dark:     #1E1E1E;
-
-$theme-colors-dark: () !default;
-$theme-colors-dark: map-merge(
-  (
-    "primary":    $primary-dark,
-    "secondary":  $secondary-dark,
-    "success":    $success,
-    "info":       $info,
-    "warning":    $warning,
-    "danger":     $danger,
-    "light":      $light,
-    "dark":       $dark,
-    "acc-a":      #C4F2FF, // Blue
-    "acc-b":      #0F490E, // Green
-    "acc-c":      #670909 // Yellow
-  ),
-  $theme-colors-dark
-);
-// End Define
 
 // Set a specific jump point for requesting color jumps
 $theme-color-interval:      8% !default;
@@ -215,19 +165,17 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-color:                $primary;
-$body-bg:                   $secondary;
+$body-bg:                   $white !default;
+$body-color:                $gray-900 !default;
 
 
 // Links
 //
 // Style anchor elements.
 
-// $link-color:                              theme-color("primary") !default;
-$link-color:                              theme-color("acc-a") !default;
+$link-color:                              theme-color("primary") !default;
 $link-decoration:                         none !default;
-// $link-hover-color:                        darken($link-color, 15%) !default;
-$link-hover-color:                        theme-color("acc-b") !default;
+$link-hover-color:                        darken($link-color, 15%) !default;
 $link-hover-decoration:                   underline !default;
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15% !default;
@@ -326,9 +274,8 @@ $embed-responsive-aspect-ratios: join(
 // Font, line-height, and color for body text, headings, and more.
 
 // stylelint-disable value-keyword-case
-// -apple-system, BlinkMacSystemFont,
-$font-family-sans-serif:      "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-monospace:       "Ubuntu Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:            $font-family-sans-serif !default;
 // stylelint-enable value-keyword-case
 
@@ -793,21 +740,15 @@ $navbar-dark-disabled-color:        rgba($white, .25) !default;
 $navbar-dark-toggler-icon-bg:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$navbar-dark-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
 $navbar-dark-toggler-border-color:  rgba($white, .1) !default;
 
-// $navbar-light-color:                rgba($black, .5) !default;
-// $navbar-light-hover-color:          rgba($black, .7) !default;
-// $navbar-light-active-color:         rgba($black, .9) !default;
-// $navbar-light-disabled-color:       rgba($black, .3) !default;
-$navbar-light-color:                theme-color("acc-a") !default;
-$navbar-light-hover-color:          theme-color("acc-b") !default;
-$navbar-light-active-color:         theme-color("acc-b") !default;
-$navbar-light-disabled-color:       theme-color("acc-c") !default;
+$navbar-light-color:                rgba($black, .5) !default;
+$navbar-light-hover-color:          rgba($black, .7) !default;
+$navbar-light-active-color:         rgba($black, .9) !default;
+$navbar-light-disabled-color:       rgba($black, .3) !default;
 $navbar-light-toggler-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
 $navbar-light-toggler-border-color: rgba($black, .1) !default;
 
-// $navbar-light-brand-color:                $navbar-light-active-color !default;
-// $navbar-light-brand-hover-color:          $navbar-light-active-color !default;
-$navbar-light-brand-color:                theme-color("primary") !default;
-$navbar-light-brand-hover-color:          theme-color("acc-b") !default;
+$navbar-light-brand-color:                $navbar-light-active-color !default;
+$navbar-light-brand-hover-color:          $navbar-light-active-color !default;
 $navbar-dark-brand-color:                 $navbar-dark-active-color !default;
 $navbar-dark-brand-hover-color:           $navbar-dark-active-color !default;
 
